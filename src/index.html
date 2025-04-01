@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <title>Météo des Villes</title>
+</head>
+<body class="bg-white text-black dark:bg-black dark:text-white">
+  <div class="container mx-auto p-4 text-center">
+    
+    <!-- Bouton Dark Mode -->
+    <button id="theme-toggle" class="mb-4 p-2 border rounded bg-gray-200 dark:bg-gray-800 dark:text-white">
+      Mode Sombre/Clair
+    </button>
+
+    <h1 class="text-3xl font-bold">🌍 Météo des Villes</h1>
+
+    <!-- Grid avec les trois villes -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            
+            <!-- Luxembourg -->
+            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                <h2 class="text-xl font-semibold">🇱🇺 Luxembourg</h2>
+                <div id="luxembourg-weather" class="mt-2 text-lg">Chargement...</div>
+            </div>
+
+            <!-- Cancun -->
+            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                <h2 class="text-xl font-semibold">🇲🇽 Cancun</h2>
+                <div id="cancun-weather" class="mt-2 text-lg">Chargement...</div>
+            </div>
+
+            <!-- Seychelles -->
+            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                <h2 class="text-xl font-semibold">🇸🇨 Seychelles</h2>
+                <div id="seychelles-weather" class="mt-2 text-lg">Chargement...</div>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            
+            <!-- Paris -->
+            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                <h2 class="text-xl font-semibold">🇫🇷 Paris</h2>
+                <div id="paris-weather" class="mt-2 text-lg">Chargement...</div>
+            </div>
+
+            <!-- Milan -->
+            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                <h2 class="text-xl font-semibold">🇮🇹 Milan</h2>
+                <div id="milan-weather" class="mt-2 text-lg">Chargement...</div>
+            </div>
+
+
+        </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
