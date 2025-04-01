@@ -1,0 +1,31 @@
+# 🗂 Node.js dependencies
+node_modules/
+package-lock.json
+
+# ⚡ Build files
+dist/
+*.css.map
+
+# 🚀 Tailwind temporary files
+.tailwind/
+
+# 📝 Logs & system files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+
+# 🛠 IDE / Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# ⚙️ Environment variables fomes
+.env
+.env.local
+.env.development
+.env.production
