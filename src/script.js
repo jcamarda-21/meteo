@@ -1,26 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 🌙 Gestion du Dark Mode
-    const themeToggle = document.getElementById("theme-toggle");
+const apiKey = "f54dc75a617a4e90a98122404250104";
+const cities = [
+    { name: "Luxembourg", id: "luxembourg-weather" },
+    { name: "Cancun", id: "cancun-weather" },
+    { name: "Seychelles", id: "seychelles-weather" },
+    { name: "Paris", id: "paris-weather" },
+    { name: "Milan", id: "milan-weather" }
+];
 
-    // Vérifie si un thème est stocké et applique-le
-    if (localStorage.getItem("theme") === "dark") {
-        document.documentElement.classList.add("dark");
-    }
+    document.addEventListener("DOMContentLoaded", () => {
+        const themeToggle = document.getElementById("theme-toggle");
+        const sunIcon = document.getElementById("sun-icon");
+        const moonIcon = document.getElementById("moon-icon");
+        const htmlElement = document.documentElement;
 
-    // Événement sur le bouton pour basculer le mode
-    themeToggle.addEventListener("click", () => {
-        document.documentElement.classList.toggle("dark");
-
-        // Sauvegarde le mode choisi
-        if (document.documentElement.classList.contains("dark")) {
-            localStorage.setItem("theme", "dark");
+        if (localStorage.getItem("theme") === "dark") {
+            htmlElement.classList.add("dark");
+            sunIcon.classList.remove("hidden"); //Display the sun
+            moonIcon.classList.add("hidden");  //Remove the moon
         } else {
-            localStorage.setItem("theme", "light");
+            htmlElement.classList.remove("dark");
+            sunIcon.classList.add("hidden"); //Remove the sun
+            moonIcon.classList.remove("hidden"); //Display the moon
         }
+
+        themeToggle.addEventListener("click", () => {
+            htmlElement.classList.toggle("dark");
+
+            if (htmlElement.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+                sunIcon.classList.remove("hidden");
+                moonIcon.classList.add("hidden");
+            } else {
+                localStorage.setItem("theme", "light");
+                sunIcon.classList.add("hidden");
+                moonIcon.classList.remove("hidden");
+            }
     });
 
-    // 🚀 Fonction pour récupérer la météo de n'importe quelle ville
-    const apiKey = "f54dc75a617a4e90a98122404250104";
 
     async function getWeather(city, elementId) {
         const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
@@ -28,26 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            
+
             if (data.error) {
-                document.getElementById(elementId).innerText = "Erreur météo";
+                document.getElementById(elementId).innerText = "Error loading data";
                 return;
             }
 
             const temperature = data.current.temp_c;
 
-            // Mise à jour de l'élément HTML avec la température
             document.getElementById(elementId).innerHTML = `${temperature}°C`;
         } catch (error) {
-            console.error("Erreur lors de la récupération des données météo :", error);
-            document.getElementById(elementId).innerText = "Impossible de récupérer la météo.";
+            console.error("Error :", error);
+            document.getElementById(elementId).innerText = "Error";
         }
     }
 
-    // 🚀 Charger la météo pour toutes les villes
-    getWeather("Luxembourg", "luxembourg-weather");
-    getWeather("Cancun", "cancun-weather");
-    getWeather("Seychelles", "seychelles-weather");
-    getWeather("Paris", "paris-weather");
-    getWeather("Milan", "milan-weather");
+    cities.forEach(city => getWeather(city.name, city.id));
 });
