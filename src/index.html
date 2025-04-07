@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-  <title>City wheather</title>
-</head>
-<body class="bg-white text-black dark:bg-black dark:text-white">
-  <div class="container mx-auto p-4 text-center">
-    
-    <!-- Dark/Light mode -->
-    <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 dark:text-white">
-        <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m6.364-12.364l-1.414 1.414M6.05 17.95l-1.414 1.414M21 12h-2M5 12H3m16.364 6.364l-1.414-1.414M6.05 6.05L4.636 4.636M12 9a3 3 0 110 6 3 3 0 010-6z"></path>
-        </svg>
-        <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-        </svg>
-    </button>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>City wheather</title>
+    </head>
+    <body class="bg-white text-black dark:bg-black dark:text-white">
+    <div class="container mx-auto p-4 text-center">
+        
+        <!-- Dark/Light mode -->
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 dark:text-white">
+            <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m6.364-12.364l-1.414 1.414M6.05 17.95l-1.414 1.414M21 12h-2M5 12H3m16.364 6.364l-1.414-1.414M6.05 6.05L4.636 4.636M12 9a3 3 0 110 6 3 3 0 010-6z"></path>
+            </svg>
+            <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
 
 
-    <h1 class="text-3xl font-bold">🌍 Wheather</h1>
+        <h1 class="text-3xl font-bold">🌍 Wheather</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            
-            <!-- Luxembourg -->
-            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
-                <h2 class="text-xl font-semibold">🇱🇺 Luxembourg</h2>
-                <div id="luxembourg-weather" class="mt-2 text-lg">Loading...</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                
+                <!-- Luxembourg -->
+                <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                    <h2 class="text-xl font-semibold">🇱🇺 Luxembourg</h2>
+                    <div id="luxembourg-weather" class="mt-2 text-lg">Loading...</div>
+                </div>
+
+                <!-- Cancun -->
+                <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                    <h2 class="text-xl font-semibold">🇲🇽 Cancun</h2>
+                    <div id="cancun-weather" class="mt-2 text-lg">Loading...</div>
+                </div>
+
+                <!-- Seychelles -->
+                <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                    <h2 class="text-xl font-semibold">🇸🇨 Seychelles</h2>
+                    <div id="seychelles-weather" class="mt-2 text-lg">Loading...</div>
+                </div>
+
             </div>
 
-            <!-- Cancun -->
-            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
-                <h2 class="text-xl font-semibold">🇲🇽 Cancun</h2>
-                <div id="cancun-weather" class="mt-2 text-lg">Loading...</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                
+                <!-- Paris -->
+                <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                    <h2 class="text-xl font-semibold">🇫🇷 Paris</h2>
+                    <div id="paris-weather" class="mt-2 text-lg">Loading...</div>
+                </div>
+
+                <!-- Milan -->
+                <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
+                    <h2 class="text-xl font-semibold">🇮🇹 Milan</h2>
+                    <div id="milan-weather" class="mt-2 text-lg">Loading...</div>
+                </div>
+
+
             </div>
 
-            <!-- Seychelles -->
-            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
-                <h2 class="text-xl font-semibold">🇸🇨 Seychelles</h2>
-                <div id="seychelles-weather" class="mt-2 text-lg">Loading...</div>
-            </div>
+    </div>
 
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            
-            <!-- Paris -->
-            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
-                <h2 class="text-xl font-semibold">🇫🇷 Paris</h2>
-                <div id="paris-weather" class="mt-2 text-lg">Loading...</div>
-            </div>
-
-            <!-- Milan -->
-            <div class="p-6 border rounded-lg shadow bg-gray-100 dark:bg-gray-700">
-                <h2 class="text-xl font-semibold">🇮🇹 Milan</h2>
-                <div id="milan-weather" class="mt-2 text-lg">Loading...</div>
-            </div>
-
-
-        </div>
-
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+    </body>
 </html>

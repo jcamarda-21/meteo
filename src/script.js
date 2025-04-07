@@ -37,27 +37,43 @@ const cities = [
             }
     });
 
-
-    async function getWeather(city, elementId) {
-        const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+    //async to wait API datas
+    async function getWeather(city, elementId, days = 3) {
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=1&aqi=no&alerts=no`;
 
         try {
             const response = await fetch(url);
             const data = await response.json();
 
             if (data.error) {
-                document.getElementById(elementId).innerText = "Error loading data";
+                document.getElementById(elementId).innerText = "Erreur de données météo";
                 return;
             }
 
             const temperature = data.current.temp_c;
+            const humidity = data.current.humidity;
+            const precipitation = data.current.precip_mm;
+            const rainChance = data.forecast.forecastday[0].day.daily_chance_of_rain;
 
-            document.getElementById(elementId).innerHTML = `${temperature}°C`;
+            let emoji = "";
+            if (temperature <= 0) emoji = "❄️";
+            else if (temperature <= 10) emoji = "🥶";
+            else if (temperature <= 20) emoji = "🙂";
+            else if (temperature <= 30) emoji = "😎";
+            else emoji = "🥵";
+
+            document.getElementById(elementId).innerHTML = `
+                <span class="text-2xl">${emoji}</span><br>
+                🌡️ ${temperature}°C<br>
+                💧 ${humidity}%<br>
+                🌧️ ${precipitation} mm<br>
+                📈 ${rainChance}% probability of rain
+            `;
         } catch (error) {
-            console.error("Error :", error);
-            document.getElementById(elementId).innerText = "Error";
+            console.error("Erreur :", error);
+            document.getElementById(elementId).innerText = "Erreur météo";
         }
     }
-
+    
     cities.forEach(city => getWeather(city.name, city.id));
 });
